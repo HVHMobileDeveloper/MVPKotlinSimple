@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MVPAndroidJava</string>
+
+<!--    LOGIN-->
+    <string name="label_btn_login">Submit</string>
+    <string name="label_field_username_login">User name</string>
+    <string name="label_field_password_login">Password</string>
+    <string name="label_title_login_page">Login</string>
 </resources>

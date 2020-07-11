@@ -3,10 +3,14 @@ package com.devfptpoly.admin.mvpandroidjava
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.devfptpoly.admin.mvpandroidjava.HandleLogin.PresenterHandleLogin
-import com.devfptpoly.admin.mvpandroidjava.HandleLogin.ViewHandleLogin
+import com.devfptpoly.admin.mvpandroidjava.Login.ModelHandleLogin
+import com.devfptpoly.admin.mvpandroidjava.Login.PresenterHandleLogin
+import com.devfptpoly.admin.mvpandroidjava.Login.ViewHandleLogin
+import com.devfptpoly.admin.mvpandroidjava.base.BaseActivity
 import com.devfptpoly.admin.mvpandroidjava.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Functional
@@ -16,17 +20,29 @@ import com.devfptpoly.admin.mvpandroidjava.databinding.ActivityMainBinding
  *
  */
 
-class MainActivity : AppCompatActivity(), ViewHandleLogin {
+class MainActivity : BaseActivity(), ViewHandleLogin {
 
-    val TAG: String = "MainActivity"
+    companion object {
+        val TAG: String = "MainActivity"
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var presenterHandleLogin: PresenterHandleLogin
+
+    override fun initialize() {
         val mainBinding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
+        presenterHandleLogin = PresenterHandleLogin(this)
+    }
 
-        var presenterHandleLogin = PresenterHandleLogin(this)
-        presenterHandleLogin.handleValidateForm("", "")
+    override fun didInitialize() {
+        btnLogin.setOnClickListener { loginSubmit() }
+    }
+
+    private fun loginSubmit() {
+        val userName = edtUserName.text.toString()
+        val password = edtPassword.text.toString()
+        val modelHandleLogin = ModelHandleLogin(userName = userName, password = password)
+        presenterHandleLogin.handleValidateForm(modelHandleLogin)
     }
 
     override fun loginSuccessfully() {

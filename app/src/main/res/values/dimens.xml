@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding">10dp</dimen>
+    <dimen name="size_main_action_bar">54dp</dimen>
+    <dimen name="size_title_login_page">54sp</dimen>
+    <dimen name="size_field_login_page">16sp</dimen>
+    <dimen name="x">2dp</dimen>
+    <dimen name="xl">4dp</dimen>
+    <dimen name="xxl">8dp</dimen>
+    <dimen name="xxxl">16dp</dimen>
+    <dimen name="xxxxl">32dp</dimen>
+</resources>

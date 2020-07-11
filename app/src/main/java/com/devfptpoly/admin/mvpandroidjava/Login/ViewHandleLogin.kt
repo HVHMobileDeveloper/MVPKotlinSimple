@@ -1,4 +1,4 @@
-package com.devfptpoly.admin.mvpandroidjava.HandleLogin
+package com.devfptpoly.admin.mvpandroidjava.Login
 
 interface ViewHandleLogin {
     fun loginSuccessfully()

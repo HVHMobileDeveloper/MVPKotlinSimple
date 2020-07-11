@@ -1,12 +1,11 @@
-package com.devfptpoly.admin.mvpandroidjava.HandleLogin
+package com.devfptpoly.admin.mvpandroidjava.Login
 
 class PresenterHandleLogin(
     var viewHandleLogin: ViewHandleLogin
 ) : PresenterImpHandleLogin {
 
-    override fun handleValidateForm(name: String, password: String) {
-        var isValid: Boolean
-        isValid = (name.trim().length > 0) && (password.trim().length > 0)
+    override fun handleValidateForm(modelHandleLogin: ModelHandleLogin) {
+        var isValid: Boolean = (modelHandleLogin.userName.isNotEmpty()) && (modelHandleLogin.password.isNotEmpty())
         if (isValid) {
             viewHandleLogin.loginSuccessfully()
         } else {
